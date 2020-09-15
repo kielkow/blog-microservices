@@ -30,6 +30,18 @@ app.post('/events', (req, res) => {
         post.comments.push({ id, content, status });
     }
 
+    if (type === 'CommentCreated') {
+        const { id, postId, content, status } = data;
+
+        const post = posts[postId];
+
+        const comment = post.comments.find(comment => comment.id === id);
+
+        comment.status = status;
+
+        comment.content = content;
+    }
+
     res.status(200).send({ status: 200, message: 'Event receveid and processed' });
 });
 
