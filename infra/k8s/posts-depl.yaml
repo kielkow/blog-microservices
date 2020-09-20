@@ -14,4 +14,4 @@ spec:
         spec:
             containers:
                 - name: posts
-                  image: kielkow/posts:0.0.1
+                  image: kielkow/posts
